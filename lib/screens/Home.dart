@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_my_travels/screens/Map.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,7 +9,9 @@ class Home extends StatefulWidget {
 class _Home extends State<Home> {
   List _list = ['sotelandia', 'acapulco', 'bastogne'];
 
-  _abrirMapa() {}
+  _abrirMapa() {
+    Navigator.push(context, MaterialPageRoute(builder: (_) => Map()));
+  }
 
   _excluirViagem() {}
 
@@ -17,6 +20,12 @@ class _Home extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Minhas viagens"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          _abrirMapa();
+        },
       ),
       body: Column(
         children: <Widget>[
